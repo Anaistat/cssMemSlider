@@ -1,0 +1,186 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+}
+
+.mem-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mem-main {
+    width: 50vw;
+    height: 75vh;
+    position: relative;
+}
+
+.slider {
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+}
+
+.slides {
+    height: inherit;
+    opacity: 0;
+    position: absolute;
+    width: inherit;
+    z-index: 0;
+    transition: transform ease-in-out .4s, opacity ease-in-out .4s;
+}
+
+.mem1 {
+    background-image: url(img/mem1.jpg);
+}
+.mem2 {
+    background-image: url(img/mem2.jpg);
+}
+.mem3 {
+    background-image: url(img/mem3.jpg);
+}
+.mem4 {
+    background-image: url(img/mem4.jpg);
+}
+.mem5 {
+    background-image: url(img/mem5.jpg);
+}
+
+.mem1, .mem2, .mem3, .mem4, .mem5{
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#slide1:checked ~ .slider > .mem1,
+#slide2:checked ~ .slider > .mem2,
+#slide3:checked ~ .slider > .mem3,
+#slide4:checked ~ .slider > .mem4,
+#slide5:checked ~ .slider > .mem5 {
+    opacity: 1;
+    z-index: 1;
+}
+
+.mem-main > input {
+    display: none;
+}
+
+.mem-main .controls {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+
+.mem-text{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+}
+
+.mem-text > div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    flex-shrink: 0;
+    opacity: 0;
+    font-family: Ayuthaya, serif;
+    font-weight: 100;
+    color: #ffffff;
+    font-size: 16pt;
+    transition: opacity ease-in-out .5s;
+}
+
+.dots{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.dots label span{
+    background: #fff;
+    width: 15px;
+    height: 15px;
+    box-sizing: border-box;
+    border-radius: 100%;
+}
+
+.dots label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 30px;
+    position: relative;
+    width: 40px;
+    padding: 10px;
+    transition: background ease-in-out .5s;
+}
+
+
+.mem-main label:hover span{
+    background: #aaaaee;
+}
+
+
+#slide1:checked ~ .controls label:nth-of-type(1) span,
+#slide2:checked ~ .controls label:nth-of-type(2) span,
+#slide3:checked ~ .controls label:nth-of-type(3) span,
+#slide4:checked ~ .controls label:nth-of-type(4) span,
+#slide5:checked ~ .controls label:nth-of-type(5) span{
+    background: transparent;
+    border: 1px solid #ffffff;
+}
+
+#slide1:checked ~ .controls div:nth-of-type(1),
+#slide2:checked ~ .controls div:nth-of-type(2),
+#slide3:checked ~ .controls div:nth-of-type(3),
+#slide4:checked ~ .controls div:nth-of-type(4),
+#slide5:checked ~ .controls div:nth-of-type(5){
+    opacity: 1;
+}
+
+
+
+@media (max-width: 990px){
+
+    .mem-main{
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .controls{
+        flex-direction: column-reverse;
+    }
+
+    .mem-text{
+        width: 100%;
+    }
+
+    .mem-text > div{
+        justify-content: center;
+    }
+
+
+}
+
+
